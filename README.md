@@ -1,8 +1,8 @@
 # NotePad
 This is an AndroidStudio rebuild of google SDK sample NotePad
 ![image](https://github.com/cmylxf906/NotePad/blob/master/imges/empty.png)
-![image]()
-![image]()
-![image]()
-![image]()
-![image]()
+![image](https://github.com/cmylxf906/NotePad/blob/master/imges/add.png)
+![image](https://github.com/cmylxf906/NotePad/blob/master/imges/showtime.png)
+![image](https://github.com/cmylxf906/NotePad/blob/master/imges/searchEmpty.png)
+![image](https://github.com/cmylxf906/NotePad/blob/master/imges/search1.png)
+![image](https://github.com/cmylxf906/NotePad/blob/master/imges/search2.png)
