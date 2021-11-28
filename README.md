@@ -75,7 +75,7 @@
         />
 </LinearLayout>
 
-#### 在 list_options_menu.xml 中添加一个item，用于点击进入搜索:
+#### 要添加笔记查询功能，就要在应用中增加一个搜索的入口。找到菜单的xml文件，list_options_menu.xml，添加一个搜索的item，搜索图标用安卓自带的图标，设为总是显示：用于点击进入搜索:
 
   <item
         android:id="@+id/menu_search"
@@ -84,24 +84,15 @@
         android:showAsAction="always" />
 
 #### 新建一个NoteSearch.java  代码如下：
- package com.example.android.notepad;
-import android.app.Activity;
-import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
-import android.widget.ListView;
-import android.widget.SearchView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
 
-public class NoteSearch extends Activity implements SearchView.OnQueryTextListener
-{
-    ListView listView;
-    SQLiteDatabase sqLiteDatabase;
-    /**
-     * The columns needed by the cursor adapter
-     */
+
+    public class NoteSearch extends Activity implements SearchView.OnQueryTextListener
+       {
+       ListView listView;
+       SQLiteDatabase sqLiteDatabase;
+       /**
+        * The columns needed by the cursor adapter
+        */
     private static final String[] PROJECTION = new String[]{
             NotePad.Notes._ID, // 0
             NotePad.Notes.COLUMN_NAME_TITLE, // 1
@@ -167,25 +158,23 @@ public class NoteSearch extends Activity implements SearchView.OnQueryTextListen
         // Sets the ListView's adapter to be the cursor adapter that was just created.
         listView.setAdapter(adapter);
         return true;
-    }
-}
+    }}
 
+#### 在NoteList中找到onOptionsItemSelected方法，在switch中添加搜索的case语句:
+ 
+    case R.id.menu_search:
+    Intent intent = new Intent();
+    intent.setClass(NotesList.this,NoteSearch.class);
+    NotesList.this.startActivity(intent);
+    return true;
+    
+#### 最后要在AndroidManifest.xml注册NoteSearch：
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <activity
+        android:name="NoteSearch"
+        android:label="@string/title_notes_search">
+    </activity>
+ 
 
 ## 实验截图如下：
 ![image](https://github.com/cmylxf906/NotePad/blob/master/imges/empty.png)
